@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class UserInterface extends StatefulWidget {
   const UserInterface({super.key});
@@ -8,6 +9,16 @@ class UserInterface extends StatefulWidget {
 }
 
 class _UserInterfaceState extends State<UserInterface> {
+  var New = "No Content";
+  var controllerVal = TextEditingController();
+
+
+  @override
+  void initState() {
+
+    super.initState();
+    getval();
+  }
   @override
   Widget build(BuildContext context) {
     double sh = MediaQuery.of(context).size.height;
@@ -34,7 +45,7 @@ class _UserInterfaceState extends State<UserInterface> {
             Container(
               alignment: Alignment.topLeft,
               child: Text(
-                'My Tasks',
+                New,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 35,
@@ -46,6 +57,7 @@ class _UserInterfaceState extends State<UserInterface> {
               margin: EdgeInsets.only(top: sh * 0.02),
               width: sw * 0.9,
               child: TextFormField(
+                controller: controllerVal ,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.white,
@@ -213,7 +225,15 @@ class _UserInterfaceState extends State<UserInterface> {
             borderRadius: BorderRadius.circular(50),
           ),
           backgroundColor: Colors.deepPurpleAccent[100],
-          onPressed: () {},
+          onPressed: () async{
+            var name = controllerVal.text.toString();
+            var prefs = await SharedPreferences.getInstance();
+            prefs.setString("name", name);
+
+            setState(() {
+              New = name;
+            });
+          },
           child: Icon(Icons.add, color: Colors.white, size: 40),
         ),
       ),
@@ -244,6 +264,12 @@ class _UserInterfaceState extends State<UserInterface> {
         ),
       ),
     );
+  }
+
+  void getval() async {
+     var prefs = await SharedPreferences.getInstance();
+     String pef = prefs.get("name").toString();
+     New = pef != null ?pef:"No content";
   }
 }
 
