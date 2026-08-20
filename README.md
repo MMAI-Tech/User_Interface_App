@@ -1,17 +1,21 @@
-# user_interface_app
+# Flutter UI Design
 
-A new Flutter project.
+A simple Flutter UI project created to practice basic Flutter layout
+widgets and UI design.
 
-## Getting Started
+## 🛠️ Technologies
+- Flutter
+- Dart
 
-This project is a starting point for a Flutter application.
+## 📌 Concepts Used
+- Column
+- Row
+- Container
+- Stack
+- Text
+- Padding & Margin
+- Icons
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🎯 Purpose
+This project was created as part of my Flutter learning journey
+to practice building user interfaces using basic Flutter widgets.
